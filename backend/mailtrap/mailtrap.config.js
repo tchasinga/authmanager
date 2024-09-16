@@ -2,7 +2,7 @@ import { MailtrapClient } from "mailtrap";
 
 const TOKEN = "1948b13dc28d3ffcded06f7fec4506d3";
 
-export const client = new MailtrapClient({
+export const MailTrapClient = new MailtrapClient({
   token: TOKEN,
 });
 
