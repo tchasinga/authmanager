@@ -1,4 +1,4 @@
-import bcrypt from "bcryptjs";
+import bcryptjs from "bcryptjs";
 import crypto from 'crypto'
 import User from "../models/user.model.js";
 
@@ -18,6 +18,8 @@ export const singup = async(req, res) =>{
                 sucess: false
             })
         }
+
+        const hashingThepasswordofTheUser = await bcryptjs.hash(10)
 
     } catch (error) {
         res.status(400).json({
