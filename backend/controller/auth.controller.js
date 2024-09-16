@@ -3,9 +3,12 @@ import crypto from 'crypto'
 import User from "../models/user.model.js";
 
 export const singup = async(req, res) =>{
-    try {
-         const {email, password, name} = req.body;
-         
+    const {email, password, name} = req.body;
+    
+    try {  
+        if(!email || !password || !name){
+            
+        }
     } catch (error) {
         
     }
