@@ -26,6 +26,7 @@ export const singup = async(req, res) =>{
             password: hashingThepasswordofTheUser,
             name,
         })
+          await user.save()
 
     } catch (error) {
         res.status(400).json({
