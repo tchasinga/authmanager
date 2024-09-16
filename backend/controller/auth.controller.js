@@ -21,11 +21,12 @@ export const singup = async(req, res) =>{
         }
 
         const hashingThepasswordofTheUser = await bcryptjs.hash(password,10)
-        const verificationCode  = generateVerificationCode()
+        const verificationCodeToken  = generateVerificationCode()
         const user = new User({
             email,
             password: hashingThepasswordofTheUser,
             name,
+            verificationToken: verificationCodeToken
         })
           await user.save()
 
