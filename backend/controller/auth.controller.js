@@ -1,7 +1,7 @@
 import bcryptjs from "bcryptjs";
 import crypto from 'crypto'
 import User from "../models/user.model.js";
-import { generateTokenAndSetCookie} from "../utils/generateTokendAndSetCookies.js";
+import { generateTokenAndSetCookie} from "../utils/generateTokenAndSetCookie.js";
 
 export const signup = async (req, res) => {
 	const { email, password, name } = req.body;
