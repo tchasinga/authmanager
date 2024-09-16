@@ -20,7 +20,10 @@ export const singup = async(req, res) =>{
         }
 
     } catch (error) {
-        
+        res.status(400).json({
+            sucess: false,
+            message: error.message
+        })      
     }
 } 
 
