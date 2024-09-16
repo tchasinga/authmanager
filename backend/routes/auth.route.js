@@ -7,7 +7,7 @@ const router = express.Router()
 
 router.post('/singup', singup)
 router.post('/login', sinigin)
-router.get('/logout', singout)
+router.post('/logout', singout)
 
 // exporting side of router
 export default router
