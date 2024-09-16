@@ -26,8 +26,9 @@ export const singup = async(req, res) =>{
             email,
             password: hashingThepasswordofTheUser,
             name,
-            verificationToken: verificationCodeToken
-        })
+            verificationToken: verificationCodeToken,
+            verificationTokenExpiresAt: Date.now() + 24 * 60 * 60 * 1000  // it's 24
+         })
           await user.save()
 
     } catch (error) {
