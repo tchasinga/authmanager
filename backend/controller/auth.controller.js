@@ -33,6 +33,14 @@ export const singup = async(req, res) =>{
 
         // Jwt
         generateTokendAndSetCookies(res, user._id);
+        res.status(201).json({
+            sucess: true,
+            message: "User was created sucessfully",
+            user:{
+                ...user._doc,
+                password: undefined
+            }
+        })
 
     } catch (error) {
         res.status(400).json({

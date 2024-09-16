@@ -11,4 +11,5 @@ export const generateTokenAndSetCookies = (res, userId) => {
         sameSite: "strict",
         maxAge: 7 * 24 * 60 * 60 * 1000, // Corrected to account for 7 days in milliseconds
     });
-};
+    return token
+ };
