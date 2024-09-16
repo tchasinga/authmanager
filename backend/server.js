@@ -13,3 +13,6 @@ app.listen(PORT, () => {
     mongoconnection();
     console.log(`server is running on port ${PORT}`);
   });
+
+
+  app.use("/api/auth", authRoutes)
