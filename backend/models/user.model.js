@@ -18,4 +18,15 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
+    isVerified:{
+        type: Boolean,
+        default: false
+    },
+    resetPasswordToken: String,
+    resetPasswordExpireAt: Date,
+    verificationToken: String,
+    verificationTokenExpiresAt: Date,
 },{timestamps: true})
+
+const User = mongoose.model("User", userSchema);
+export default User;
