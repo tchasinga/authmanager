@@ -1,6 +1,7 @@
 import bcryptjs from "bcryptjs";
 import crypto from 'crypto'
 import User from "../models/user.model.js";
+import { generateVerificationCode } from "../utils/generateVerificationCode.js";
 
 export const singup = async(req, res) =>{
     const {email, password, name} = req.body;
