@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-export const generateTokendAndSetCookies = (res, userId) => {
+export const generateTokenAndSetCookie = (res, userId) => {
     const token = jwt.sign({ userId }, process.env.SECRET_KEYJWT, {
         expiresIn: "7d",
     });

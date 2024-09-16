@@ -1,56 +1,53 @@
 import bcryptjs from "bcryptjs";
 import crypto from 'crypto'
 import User from "../models/user.model.js";
-import { generateTokendAndSetCookies } from "../utils/generateTokendAndSetCookies.js";
+import { generateTokenAndSetCookie} from "../utils/generateTokendAndSetCookies.js";
 
-export const singup = async(req, res) =>{
-    const {email, password, name} = req.body;
-    
-    try {  
-        if(!email || !password || !name){
-            return res.status(400).json({message: "Please fill all the fields"})
-        }
+export const signup = async (req, res) => {
+	const { email, password, name } = req.body;
 
-        const userHasALreayExistings = await User.findOne({email})
+	try {
+		if (!email || !password || !name) {
+			throw new Error("All fields are required");
+		}
 
-        if(userHasALreayExistings){
-            return res.status(400).json({
-                message: "This user has already existe",
-                sucess: false
-            })
-        }
+		const userAlreadyExists = await User.findOne({ email });
+		console.log("userAlreadyExists", userAlreadyExists);
 
-        const hashingThepasswordofTheUser = await bcryptjs.hash(password,10)
-        const verificationCodeToken  = Math.floor(100000 + Math.random() * 900000).toString();
-        const user = new User({
-            email,
-            password: hashingThepasswordofTheUser,
-            name,
-            verificationCodeToken,
-            verificationTokenExpiresAt: Date.now() + 24 * 60 * 60 * 1000  // it's 24
-         })
-          await user.save()
+		if (userAlreadyExists) {
+			return res.status(400).json({ success: false, message: "User already exists" });
+		}
 
-        // Jwt
-        generateTokendAndSetCookies(res, user._id);
-        res.status(201).json({
-            sucess: true,
-            message: "User was created sucessfully",
-            user:{
-                ...user._doc,
-                password: undefined
-            }
-        })
+		const hashedPassword = await bcryptjs.hash(password, 10);
+		const verificationToken = Math.floor(100000 + Math.random() * 900000).toString();
 
-    } catch (error) {
-        res.status(400).json({
-            sucess: false,
-            message: error.message
-        })      
-    }
-} 
+		const user = new User({
+			email,
+			password: hashedPassword,
+			name,
+			verificationToken,
+			verificationTokenExpiresAt: Date.now() + 24 * 60 * 60 * 1000, // 24 hours
+		});
 
+		await user.save();
 
+		// jwt
+		generateTokenAndSetCookie(res, user._id);
+
+		await sendVerificationEmail(user.email, verificationToken);
+
+		res.status(201).json({
+			success: true,
+			message: "User created successfully",
+			user: {
+				...user._doc,
+				password: undefined,
+			},
+		});
+	} catch (error) {
+		res.status(400).json({ success: false, message: error.message });
+	}
+};
  
 
 export const sinigin = async(req, res) =>{

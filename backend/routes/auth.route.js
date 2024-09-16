@@ -1,11 +1,11 @@
 import express from "express";
-import { singout, singup, sinigin } from "../controller/auth.controller.js";
+import { singout, signup, sinigin } from "../controller/auth.controller.js";
 
 
 // initialize express 
 const router = express.Router()
 
-router.post('/singup', singup)
+router.post('/singup', signup)
 router.post('/login', sinigin)
 router.post('/logout', singout)
 
