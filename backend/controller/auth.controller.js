@@ -20,6 +20,12 @@ export const singup = async(req, res) =>{
         }
 
         const hashingThepasswordofTheUser = await bcryptjs.hash(password,10)
+        const verificationCode  = generateVerificationCode()
+        const user = new User({
+            email,
+            password: hashingThepasswordofTheUser,
+            name,
+        })
 
     } catch (error) {
         res.status(400).json({
