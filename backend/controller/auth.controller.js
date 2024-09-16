@@ -1,7 +1,6 @@
 import bcryptjs from "bcryptjs";
 import crypto from 'crypto'
 import User from "../models/user.model.js";
-import { generateVerificationCode } from "../utils/generateVerificationCode.js";
 import { generateTokendAndSetCookies } from "../utils/generateTokendAndSetCookies.js";
 
 export const singup = async(req, res) =>{
@@ -22,12 +21,12 @@ export const singup = async(req, res) =>{
         }
 
         const hashingThepasswordofTheUser = await bcryptjs.hash(password,10)
-        const verificationCodeToken  = generateVerificationCode()
+        const verificationCodeToken  = Math.floor(100000 + Math.random() * 900000).toString();
         const user = new User({
             email,
             password: hashingThepasswordofTheUser,
             name,
-            verificationToken: verificationCodeToken,
+            verificationCodeToken,
             verificationTokenExpiresAt: Date.now() + 24 * 60 * 60 * 1000  // it's 24
          })
           await user.save()
