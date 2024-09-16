@@ -1,7 +1,7 @@
 import bcryptjs from "bcryptjs";
 import crypto from 'crypto'
-import generateTokenAndSetCookie from "../utils/generateTokenAndSetCookie.js";
 import User from "../models/user.model.js";
+import { generateTokenAndSetCookie } from "../utils/generateTokenAndSetCookie.js";
 
 
 export const signup = async (req, res) => {
@@ -29,13 +29,10 @@ export const signup = async (req, res) => {
 			verificationToken,
 			verificationTokenExpiresAt: Date.now() + 24 * 60 * 60 * 1000, // 24 hours
 		});
-
 		await user.save();
 
 		// jwt
 		generateTokenAndSetCookie(res, user._id);
-
-		await sendVerificationEmail(user.email, verificationToken);
 
 		res.status(201).json({
 			success: true,
