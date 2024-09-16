@@ -7,7 +7,7 @@ export const singup = async(req, res) =>{
     
     try {  
         if(!email || !password || !name){
-            
+            return res.status(400).json({message: "Please fill all the fields"})
         }
     } catch (error) {
         
