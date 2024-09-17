@@ -116,6 +116,12 @@ export const sinigin = async(req, res) =>{
 	}
 } 
 
+// this is my singout function
+export const singout = async(req, res) =>{
+	res.clearCookie("token");
+	res.status(200).json({ success: true, message: "Logged out successfully" });
+} 
+
 // this is my forgetpassword functions
 export const forgetpassword = async (req, res) =>{
 	const { email } = req.body;
@@ -151,10 +157,6 @@ export const resetpassword = async(req, res) =>{
 	   
 } 
 
-// this is my singout function
-export const singout = async(req, res) =>{
-	res.clearCookie("token");
-	res.status(200).json({ success: true, message: "Logged out successfully" });
-} 
+
 
 
