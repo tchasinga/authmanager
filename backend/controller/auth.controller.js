@@ -61,7 +61,11 @@ export const verifyEmail = async (req, res) =>{
 		if(!user){
 			return res.status(400).json({ success: false, message: "Invalid or expired verification code" });
 		}
-		
+
+		user.isVerified = true;
+		await user.save();
+		await sendWelcomEmails(user.email, user.name)
+
 	 } catch (error) {
 		
 	 }
