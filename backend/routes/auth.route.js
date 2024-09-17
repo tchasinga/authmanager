@@ -9,7 +9,7 @@ router.post('/singup', signup)
 router.post('/login', sinigin)
 router.post('/logout', singout)
 
-router.post('/verify-email', verifyEmail)
+router.post('/verifyemail', verifyEmail)
 
 // exporting side of router
 export default router
