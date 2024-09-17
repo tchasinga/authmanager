@@ -124,6 +124,8 @@ export const forgetpassword = async (req, res) =>{
 		if(!user){
 			res.status(500).json({ success: false, message: "User not fund for now"});
 		}
+
+		// Generating something now...
 	} catch (error) {
 		
 	}
