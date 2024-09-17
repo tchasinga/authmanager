@@ -127,7 +127,7 @@ export const forgetpassword = async (req, res) =>{
 		}
 
 		// Generating something now... like a reset token
-
+		const resetToken = crypto.randomBytes(20).toString("hex")
 	} catch (error) {
 		
 	}
