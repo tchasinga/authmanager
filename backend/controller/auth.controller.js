@@ -3,7 +3,7 @@ import crypto from 'crypto'
 
 import User from "../models/user.model.js";
 import { generateTokenAndSetCookie } from "../utils/generateTokenAndSetCookie.js";
-import { sendVerificationEmail, sendWelcomEmails } from "../mailtrap/email.js";
+import { sendPasswordResetEmail, sendVerificationEmail, sendWelcomEmails } from "../mailtrap/email.js";
 
 // this is my signup function
 export const signup = async (req, res) => {
@@ -118,26 +118,30 @@ export const sinigin = async(req, res) =>{
 
 // this is my forgetpassword functions
 export const forgetpassword = async (req, res) =>{
-	const {email} = req.body;
+	const { email } = req.body;
 	try {
-		const user = await User.findOne({email})
-		
-		if(!user){
-			res.status(500).json({ success: false, message: "User not fund for now"});
+		const user = await User.findOne({ email });
+
+		if (!user) {
+			return res.status(400).json({ success: false, message: "User not found" });
 		}
 
-		// Generating something now... like a reset token
-		const resetToken = crypto.randomBytes(20).toString("hex")
-		const resetTokenExpiresAt = Date.now() + 2 * 60 * 60 * 1000; // delay of 2 hours
-		user.resetPasswordToken = resetToken
-		user.resetPasswordExpiresAt = resetTokenExpiresAt
+		// Generate reset token
+		const resetToken = crypto.randomBytes(20).toString("hex");
+		const resetTokenExpiresAt = Date.now() + 1 * 60 * 60 * 1000; // 1 hour
 
-		await user.save()
+		user.resetPasswordToken = resetToken;
+		user.resetPasswordExpiresAt = resetTokenExpiresAt;
 
-		// send Email
-		await sendPasswordResetEmail(user.email, `http://localhost:5173/reset-password/${resetToken}`)
+		await user.save();
+
+		// send email
+		await sendPasswordResetEmail(user.email, `http://localhost:5173/reset-password/${resetToken}`);
+
+		res.status(200).json({ success: true, message: "Password reset link sent to your email" });
 	} catch (error) {
-		
+		console.log("Error in forgotPassword ", error);
+		res.status(400).json({ success: false, message: error.message });
 	}
 }
 
