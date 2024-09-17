@@ -4,7 +4,7 @@ import User from "../models/user.model.js";
 import { generateTokenAndSetCookie } from "../utils/generateTokenAndSetCookie.js";
 import { sendVerificationEmail, sendWelcomEmails } from "../mailtrap/email.js";
 
-
+// this is my signup function
 export const signup = async (req, res) => {
 	const { email, password, name } = req.body;
 
@@ -49,7 +49,7 @@ export const signup = async (req, res) => {
 	}
 };
  
-
+// this is my verifyEmail function
 export const verifyEmail = async (req, res) =>{
 	const { code } = req.body;
 	try {
@@ -83,6 +83,7 @@ export const verifyEmail = async (req, res) =>{
 	}
 }
 
+// this is my sinigin function
 export const sinigin = async(req, res) =>{
 	const { email, password } = req.body;
 	try {
@@ -114,7 +115,12 @@ export const sinigin = async(req, res) =>{
 	}
 } 
 
+// this is my forgetpassword functions
+export const forgetpassword = async (req, res) =>{
+	
+}
 
+// this is my singout function
 export const singout = async(req, res) =>{
 	res.clearCookie("token");
 	res.status(200).json({ success: true, message: "Logged out successfully" });

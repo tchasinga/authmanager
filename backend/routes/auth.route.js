@@ -1,5 +1,5 @@
 import express from "express";
-import { singout, signup, sinigin , verifyEmail} from "../controller/auth.controller.js";
+import { singout, signup, sinigin , verifyEmail, forgetpassword} from "../controller/auth.controller.js";
 
 
 // initialize express 
