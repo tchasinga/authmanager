@@ -10,6 +10,7 @@ router.post('/login', sinigin)
 router.post('/logout', singout)
 
 router.post('/verifyemail', verifyEmail)
+router.post('/forgetpassword', forgetpassword)
 
 // exporting side of router
 export default router
