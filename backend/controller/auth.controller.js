@@ -128,6 +128,11 @@ export const forgetpassword = async (req, res) =>{
 
 		// Generating something now... like a reset token
 		const resetToken = crypto.randomBytes(20).toString("hex")
+		const resetTokenExpiresAt = Date.now() + 2 * 60 * 60 * 1000; // delay of 2 hours
+		user.resetPasswordToken = resetToken
+		user.resetPasswordExpiresAt = resetTokenExpiresAt
+
+		await user.save()
 	} catch (error) {
 		
 	}
