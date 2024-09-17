@@ -56,3 +56,8 @@ export const sinigin = async(req, res) =>{
 
 export const singout = async(req, res) =>{
 } 
+
+
+export const verifyEmail = async (req, res) =>{
+	
+}
