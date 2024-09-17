@@ -120,6 +120,10 @@ export const forgetpassword = async (req, res) =>{
 	const {email} = req.body;
 	try {
 		const user = await User.findOne({email})
+		
+		if(!user){
+			res.status(500).json({ success: false, message: "User not fund for now"});
+		}
 	} catch (error) {
 		
 	}
