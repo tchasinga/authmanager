@@ -11,7 +11,6 @@ router.post('/logout', singout)
 
 router.post('/verifyemail', verifyEmail)
 router.post('/forgetpassword', forgetpassword)
-
 router.post('/resetpassword/:token', resetpassword)
 
 // exporting side of router
