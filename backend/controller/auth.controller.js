@@ -117,7 +117,12 @@ export const sinigin = async(req, res) =>{
 
 // this is my forgetpassword functions
 export const forgetpassword = async (req, res) =>{
-	
+	const {email} = req.body;
+	try {
+		const user = await User.findOne({email})
+	} catch (error) {
+		
+	}
 }
 
 // this is my singout function
