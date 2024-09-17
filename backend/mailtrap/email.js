@@ -23,7 +23,7 @@ export const sendVerificationEmail = async (email, verificationToken) => {
 export const sendWelcomEmails = async (email, name) => {
   const recipient = [{ email }];
   try {
- const response =  await MailTrapClient.send({
+    const response = await MailTrapClient.send({
       from: sender,
       to: recipient,
       template_uuid: "afd56a0b-aed4-4c01-a2ba-8f97f348d2fc",
@@ -36,12 +36,12 @@ export const sendWelcomEmails = async (email, name) => {
         company_info_country: "Congo (DRC)",
       },
     });
-    console.log("Welcome email goodly", response)
+    console.log("Welcome email goodly", response);
   } catch (error) {
-    console.log("Not sent really badly now...", error)
+    console.log("Not sent really badly now...", error);
   }
 };
 
-export const sendPasswordResetEmail = async (email, resetURL) =>{
+export const sendPasswordResetEmail = async (email, resetURL) => {
     
-}
+};
