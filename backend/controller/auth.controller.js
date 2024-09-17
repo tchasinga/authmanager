@@ -1,5 +1,6 @@
 import bcryptjs from "bcryptjs";
 import crypto from 'crypto'
+
 import User from "../models/user.model.js";
 import { generateTokenAndSetCookie } from "../utils/generateTokenAndSetCookie.js";
 import { sendVerificationEmail, sendWelcomEmails } from "../mailtrap/email.js";
@@ -125,7 +126,8 @@ export const forgetpassword = async (req, res) =>{
 			res.status(500).json({ success: false, message: "User not fund for now"});
 		}
 
-		// Generating something now...
+		// Generating something now... like a reset token
+
 	} catch (error) {
 		
 	}
