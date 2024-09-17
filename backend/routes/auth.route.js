@@ -1,5 +1,5 @@
 import express from "express";
-import { singout, signup, sinigin , verifyEmail, forgetpassword} from "../controller/auth.controller.js";
+import { singout, signup, sinigin , verifyEmail, forgetpassword, resetpassword} from "../controller/auth.controller.js";
 
 
 // initialize express 
@@ -11,6 +11,8 @@ router.post('/logout', singout)
 
 router.post('/verifyemail', verifyEmail)
 router.post('/forgetpassword', forgetpassword)
+
+router.post('/resetpassword/:token', resetpassword)
 
 // exporting side of router
 export default router

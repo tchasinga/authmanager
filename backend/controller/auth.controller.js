@@ -145,6 +145,12 @@ export const forgetpassword = async (req, res) =>{
 	}
 }
 
+
+// this is resetpassword functios
+export const resetpassword = async(req, res) =>{
+	   
+} 
+
 // this is my singout function
 export const singout = async(req, res) =>{
 	res.clearCookie("token");
