@@ -133,6 +133,9 @@ export const forgetpassword = async (req, res) =>{
 		user.resetPasswordExpiresAt = resetTokenExpiresAt
 
 		await user.save()
+
+		// send Email
+		await sendPasswordResetEmail(user.email, `http://localhost:5173/reset-password/${resetToken}`)
 	} catch (error) {
 		
 	}
