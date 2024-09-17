@@ -41,3 +41,7 @@ export const sendWelcomEmails = async (email, name) => {
     console.log("Not sent really badly now...", error)
   }
 };
+
+export const sendPasswordResetEmail = async (email, resetURL) =>{
+    
+}
