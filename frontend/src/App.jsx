@@ -3,8 +3,8 @@ import './App.css'
 function App() {
 
   return (
-    <div>
-      <h1 className="text-4xl font-bold hover:cursor-pointer bg-blue-600 p-4 rounded-xls">Welcom now </h1>
+    <div className="max-w-3xl mx-auto">
+      <h1 className="text-4xl font-bold text-red-500">Welcom now is good </h1>
     </div>
   )
 }
