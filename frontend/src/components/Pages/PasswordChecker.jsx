@@ -28,7 +28,7 @@ const PasswordCriteria = ({ password }) => {
     )
 };
 
-export default function PasswordChecker() {
+export default function PasswordChecker({password}) {
   return (
     <div>
 
