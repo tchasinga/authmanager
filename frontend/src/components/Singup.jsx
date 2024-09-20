@@ -46,7 +46,7 @@ export default function Singup() {
           <Inputs
             icon={Lock}
             type="password"
-            placeholder="Enter your email"
+            placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
