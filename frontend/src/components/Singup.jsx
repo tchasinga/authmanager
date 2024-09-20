@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Inputs from "./Pages/Inputs";
-import { User, Mail, Lock } from "lucide-react";
+import { User, Mail, Lock, Loader } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import PasswordChecker from "./Pages/PasswordChecker";
@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Singup() {
 
-  const {signup} = useAuthStore();
+  const {signup, error, isLoading} = useAuthStore();
   const navigate = useNavigate()
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -68,6 +68,8 @@ export default function Singup() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
+          {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+
           {/* Password regex */}
           <PasswordChecker password={password} />
           <motion.button
@@ -78,8 +80,11 @@ export default function Singup() {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           type='submit'
+          disabled= {isLoading}
           >
-            Sing Up
+            {
+              isLoading ? <Loader /> : "Sing Up"
+            }
           </motion.button>
         </form>
       </div>
