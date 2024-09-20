@@ -8,7 +8,9 @@ export default function Singin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handlerSubmitHere = () => {
+  const handlerSubmitHereLogin = (e) => {
+    e.preventDefault();
+    console.log("Form submitted");
   }
 
   return (
