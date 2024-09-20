@@ -46,7 +46,7 @@ export default function VerifiedEmail() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const verificationCode = code.join("")
-    alert(`Verification code submitted: ${verificationCode}`)
+    console.log(`Verification code submitted: ${verificationCode}`)
   };
 
   // Auto submit when all fields are filled is code verification
