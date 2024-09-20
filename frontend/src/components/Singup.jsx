@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Inputs from "./Pages/Inputs";
 import { User, Mail, Lock } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Singup() {
   const handlerSubmitHere = (e) => {
@@ -65,6 +66,17 @@ export default function Singup() {
           </motion.button>
         </form>
       </div>
+      
+      {/* Adding a link to login page */}
+      <div className='px-8 py-4 bg-gray-900 bg-opacity-50 flex justify-center'>
+				<p className='text-sm text-gray-400'>
+					Already have an account?{" "}
+					<Link to={"/login"} className='text-green-400 hover:underline'>
+						Login
+					</Link>
+				</p>
+			</div>
+
     </motion.div>
   );
 }
