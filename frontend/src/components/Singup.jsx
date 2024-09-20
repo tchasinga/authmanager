@@ -23,6 +23,8 @@ export default function Singup() {
         <form onSubmit={handlerSubmitHere}>
           <Inputs
              icon={User} 
+             type="text"
+              placeholder="type your name"
           />
         </form>
      </div>
