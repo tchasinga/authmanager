@@ -4,17 +4,32 @@ import { User, Mail, Lock } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import PasswordChecker from "./Pages/PasswordChecker";
+import { useAuthStore } from "../store/authStore.js";
+import { useNavigate } from "react-router-dom";
+
+
 
 export default function Singup() {
-  const handlerSubmitHere = (e) => {
-    e.preventDefault();
-    console.log("Form submitted");
-  };
 
+  const {signup} = useAuthStore();
+  const navigate = useNavigate()
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  
+  const handlerSubmitHere = async(e) => {
+    e.preventDefault();
+    try {
+       await signup(email, password, name)
+       navigate('/verify-email')
+    } catch (error) {
+
+    }
+    console.log("Form submitted");
+  };
+
+ 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
