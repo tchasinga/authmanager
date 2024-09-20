@@ -57,7 +57,7 @@ export default function Singin() {
           whileTap={{ scale: 0.98 }}
           type='submit'
           >
-            Sing Up
+            Sing In
           </motion.button>
         </form>
       </div>
