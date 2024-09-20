@@ -21,11 +21,14 @@ export default function Singup() {
 
         {/* Adding a form here */}
         <form onSubmit={handlerSubmitHere}>
+          
           <Inputs
              icon={User} 
              type="text"
-              placeholder="type your name"
+              placeholder="Full name"
           />
+
+          
         </form>
      </div>
     </motion.div>
