@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Inputs from "./Pages/Inputs";
-import
+import {User} from 'lucide-react'
 
 export default function Singup() {
 
@@ -21,7 +21,9 @@ export default function Singup() {
 
         {/* Adding a form here */}
         <form onSubmit={handlerSubmitHere}>
-          <Inputs />
+          <Inputs
+             icon={User} 
+          />
         </form>
      </div>
     </motion.div>
