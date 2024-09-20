@@ -33,7 +33,8 @@ export default function VerifiedEmail() {
 
                 <form className="space-y-6">
                     <div className="flex justify-between">
-                    <input
+                    {code.map((digit, index) => (
+							<input
 								key={index}
 								ref={(el) => (inputsRef.current[index] = el)}
 								type='text'
@@ -43,6 +44,7 @@ export default function VerifiedEmail() {
 								onKeyDown={(e) => handleKeyDown(index, e)}
 								className='w-12 h-12 text-center text-2xl font-bold bg-gray-700 text-white border-2 border-gray-600 rounded-lg focus:border-green-500 focus:outline-none'
 							/>
+						))}
                     </div>
                 </form>
             </motion.div>
