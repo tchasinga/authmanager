@@ -70,7 +70,7 @@ export default function VerifiedEmail() {
           Enter the 6-digit code sent to your email address.
         </p>
 
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleSubmit}>
           <div className="flex justify-between">
             {code.map((digit, index) => (
               <input
