@@ -83,7 +83,7 @@ export default function Singup() {
           disabled= {isLoading}
           >
             {
-              isLoading ? <Loader /> : "Sing Up"
+              isLoading ? <Loader className="animate-spin"/> : "Sing Up"
             }
           </motion.button>
         </form>
