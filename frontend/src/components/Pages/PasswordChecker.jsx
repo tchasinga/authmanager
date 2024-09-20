@@ -31,7 +31,7 @@ const PasswordCriteria = ({ password }) => {
 export default function PasswordChecker({password}) {
   return (
     <div>
-
+        
     </div>
   )
 }
