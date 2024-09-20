@@ -24,7 +24,7 @@ export default function Singup() {
        await signup(email, password, name)
        navigate('/verify-email')
     } catch (error) {
-
+      console.log(error)
     }
     console.log("Form submitted");
   };
