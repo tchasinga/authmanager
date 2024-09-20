@@ -57,6 +57,7 @@ export default function Singin() {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           type='submit'
+          disabled={isLoading}
           >
             {
               isLoading ? <Loader/> : "Sing In"
