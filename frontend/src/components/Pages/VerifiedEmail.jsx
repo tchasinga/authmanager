@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import {motion} from 'framer-motion'
@@ -7,6 +8,13 @@ export default function VerifiedEmail() {
     const [code, setCode] = useState(["","","","","",""])
     const inputsRef = useRef([])
     const navigate = useNavigate()
+
+
+    const handleChange = (index, value) => {
+    }
+
+    const handleKeyDown = (index, e) => {
+    }
 
     
   return (
