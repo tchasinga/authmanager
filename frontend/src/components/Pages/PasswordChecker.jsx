@@ -29,9 +29,20 @@ const PasswordCriteria = ({ password }) => {
 };
 
 export default function PasswordChecker({password}) {
+   
+    const getStrength = (pass) => {
+		let strength = 0;
+		if (pass.length >= 6) strength++;
+		if (pass.match(/[a-z]/) && pass.match(/[A-Z]/)) strength++;
+		if (pass.match(/\d/)) strength++;
+		if (pass.match(/[^a-zA-Z\d]/)) strength++;
+		return strength;
+	};
+	const strength = getStrength(password);
+    
   return (
     <div>
-        
+
     </div>
   )
 }
