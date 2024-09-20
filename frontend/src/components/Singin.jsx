@@ -8,6 +8,9 @@ export default function Singin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const handlerSubmitHere = () => {
+  }
+
   return (
     <motion.div>
         <h1>Singin side</h1>
