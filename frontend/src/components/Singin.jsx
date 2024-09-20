@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Singin() {
 
@@ -6,8 +7,8 @@ export default function Singin() {
   const [password, setPassword] = useState("");
 
   return (
-    <div>
+    <motion.div>
         <h1>Singin side</h1>
-    </div>
+    </motion.div>
   )
 }
