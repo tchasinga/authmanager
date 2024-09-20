@@ -3,8 +3,8 @@ import './App.css'
 function App() {
 
   return (
-    <div>
-      <h1 className="text-4xl font-bold">Welcom now is good </h1>
+    <div className="max-w-3xl mx-auto">
+      <h1 className="text-4xl font-bold text-red-500">Welcom now is good </h1>
     </div>
   )
 }
