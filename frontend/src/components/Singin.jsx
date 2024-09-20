@@ -60,6 +60,12 @@ export default function Singin() {
             Sing In
           </motion.button>
         </form>
+
+        <div className='flex items-center mb-6 py-3'>
+						<Link to='/forgot-password' className='text-sm text-green-400 hover:underline'>
+							Forgot password ?
+						</Link>
+					</div>
       </div>
       
       {/* Adding a link to sing up page */}
