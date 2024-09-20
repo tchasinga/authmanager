@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Inputs from "./Pages/Inputs";
-import { User, Mail} from "lucide-react";
+import { User, Mail, Lock } from "lucide-react";
 import { useState } from "react";
 
 export default function Singup() {
@@ -10,6 +10,8 @@ export default function Singup() {
   };
 
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     <motion.div
@@ -37,8 +39,16 @@ export default function Singup() {
             icon={Mail}
             type="email"
             placeholder="Enter your email"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+          <Inputs
+            icon={Lock}
+            type="password"
+            placeholder="Enter your email"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </form>
       </div>
