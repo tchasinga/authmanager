@@ -6,6 +6,7 @@ import Home from './components/Home.jsx'
 import Singup from './components/Singup.jsx'
 import Singin from './components/Singin.jsx'
 import ForgetPassword from './components/Pages/ForgetPassword.jsx'
+import VerifiedEmail from './components/Pages/VerifiedEmail.jsx'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/singup" element={<Singup />} />
           <Route path="/singin" element={<Singin />} />
           <Route path='/forgot-password' element={<ForgetPassword />} />
+          <Route path='/verify-email' element={<VerifiedEmail />}/>
         </Routes>
     </div>
   )
