@@ -60,7 +60,7 @@ export default function Singin() {
           disabled={isLoading}
           >
             {
-              isLoading ? <Loader/> : "Sing In"
+              isLoading ? <Loader className="animate-spin"/> : "Sing In"
             }
           </motion.button>
         </form>
