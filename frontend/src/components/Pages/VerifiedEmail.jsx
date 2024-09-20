@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -45,7 +45,8 @@ export default function VerifiedEmail() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted");
+    const verificationCode = code.join("")
+    alert(`Verification code submitted: ${verificationCode}`)
   };
 
   // Auto submit when all fields are filled is code verification
