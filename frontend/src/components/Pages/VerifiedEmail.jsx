@@ -27,14 +27,14 @@ export default function VerifiedEmail() {
 			// Focus on the last non-empty input or the first empty one
 			const lastFilledIndex = newCode.findLastIndex((digit) => digit !== "");
 			const focusIndex = lastFilledIndex < 5 ? lastFilledIndex + 1 : 5;
-			inputRefs.current[focusIndex].focus();
+			inputsRef.current[focusIndex].focus();
 		} else {
 			newCode[index] = value;
 			setCode(newCode);
 
 			// Move focus to the next input field if value is entered
 			if (value && index < 5) {
-				inputRefs.current[index + 1].focus();
+				inputsRef.current[index + 1].focus();
 			}
 		}
 	};
