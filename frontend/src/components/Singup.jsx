@@ -3,6 +3,7 @@ import Inputs from "./Pages/Inputs";
 import { User, Mail, Lock } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import PasswordChecker from "./Pages/PasswordChecker";
 
 export default function Singup() {
   const handlerSubmitHere = (e) => {
@@ -53,6 +54,7 @@ export default function Singup() {
           />
 
           {/* Password regex */}
+          <PasswordChecker password={password} />
           <motion.button
           className='mt-5 w-full py-3 px-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white 
           font-bold rounded-lg shadow-lg hover:from-green-600
