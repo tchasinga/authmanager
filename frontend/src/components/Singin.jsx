@@ -62,12 +62,12 @@ export default function Singin() {
         </form>
       </div>
       
-      {/* Adding a link to login page */}
+      {/* Adding a link to sing up page */}
       <div className='px-8 py-4 bg-gray-900 bg-opacity-50 flex justify-center'>
 				<p className='text-sm text-gray-400'>
 					Don&apos;t have an account?{" "}
 					<Link to={"/singup"} className='text-green-400 hover:underline'>
-						Login
+          sing up 
 					</Link>
 				</p>
 			</div>
