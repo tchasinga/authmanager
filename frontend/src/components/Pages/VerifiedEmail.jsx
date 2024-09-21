@@ -55,8 +55,10 @@ export default function VerifiedEmail() {
       toast.success("Email verified successfully");
     } catch (error) {
       console.log(error);
+      toast.error(error);
     }
     console.log(`Verification code submitted: ${verificationCode}`);
+    
   };
 
   // Auto submit when all fields are filled is code verification
