@@ -9,7 +9,18 @@ import Singin from './components/Singin.jsx'
 import ForgetPassword from './components/Pages/ForgetPassword.jsx'
 import VerifiedEmail from './components/Pages/VerifiedEmail.jsx'
 
+// import { useAuthStore } from './store/authStore.js';
+// import { useEffect } from 'react';
+
 function App() {
+  // const {isCheckingAuth, isAuthenticated, checkAuth, user} = useAuthStore();
+
+  // useEffect(() => {
+  //   checkAuth();
+  // }, [checkAuth]);
+
+  // console.log("data is there", isAuthenticated);
+  // console.log("user is added", user)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-emerald-900 flex items-center justify-center relative overflow-hidden">
