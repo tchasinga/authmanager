@@ -4,12 +4,14 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useAuthStore } from "../../store/authStore";
 
 export default function VerifiedEmail() {
   const [code, setCode] = useState(["", "", "", "", "", ""]);
   const inputsRef = useRef([]);
   const navigate = useNavigate();
-  const isLoading = false;
+
+  const {error, isLoading, verifyEmail} = useAuthStore()
 
   const handleChange = (index, value) => {
     const newCode = [...code];
