@@ -1,15 +1,18 @@
 /* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-vars */ 
 
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useAuthStore } from "../../store/authStore";
+import toast from "react-hot-toast";
 
 export default function VerifiedEmail() {
   const [code, setCode] = useState(["", "", "", "", "", ""]);
   const inputsRef = useRef([]);
   const navigate = useNavigate();
-  const isLoading = false;
+
+  const { error, isLoading, verifyEmail } = useAuthStore();
 
   const handleChange = (index, value) => {
     const newCode = [...code];
@@ -43,10 +46,19 @@ export default function VerifiedEmail() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const verificationCode = code.join("")
-    console.log(`Verification code submitted: ${verificationCode}`)
+    const verificationCode = code.join("");
+    try {
+      await verifyEmail(verificationCode);
+      navigate("/");
+      toast.success("Email verified successfully");
+    } catch (error) {
+      console.log(error);
+      toast.error(error);
+    }
+    console.log(`Verification code submitted: ${verificationCode}`);
+    
   };
 
   // Auto submit when all fields are filled is code verification
