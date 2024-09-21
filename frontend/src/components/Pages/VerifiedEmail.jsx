@@ -11,7 +11,7 @@ export default function VerifiedEmail() {
   const inputsRef = useRef([]);
   const navigate = useNavigate();
 
-  const {error, isLoading, verifyEmail} = useAuthStore()
+  const { error, isLoading, verifyEmail } = useAuthStore();
 
   const handleChange = (index, value) => {
     const newCode = [...code];
@@ -45,10 +45,16 @@ export default function VerifiedEmail() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const verificationCode = code.join("")
-    console.log(`Verification code submitted: ${verificationCode}`)
+    const verificationCode = code.join("");
+    try {
+      await verifyEmail(verificationCode);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+    console.log(`Verification code submitted: ${verificationCode}`);
   };
 
   // Auto submit when all fields are filled is code verification
