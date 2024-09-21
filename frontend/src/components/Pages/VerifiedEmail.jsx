@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-vars */ 
 
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -51,6 +51,7 @@ export default function VerifiedEmail() {
     try {
       await verifyEmail(verificationCode);
       navigate("/");
+      
     } catch (error) {
       console.log(error);
     }
