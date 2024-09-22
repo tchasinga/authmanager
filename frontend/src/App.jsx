@@ -13,7 +13,7 @@ import VerifiedEmail from './components/Pages/VerifiedEmail.jsx'
 // import { useEffect } from 'react';
 
 function App() {
-  // const {isCheckingAuth, isAuthenticated, checkAuth, user} = useAuthStore();
+  const {isCheckingAuth, isAuthenticated, checkAuth, user} = useAuthStore();
 
   useEffect(() => {
     checkAuth();
