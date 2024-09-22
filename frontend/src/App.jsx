@@ -10,7 +10,7 @@ import ForgetPassword from './components/Pages/ForgetPassword.jsx'
 import VerifiedEmail from './components/Pages/VerifiedEmail.jsx'
 
 // import { useAuthStore } from './store/authStore.js';
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
 
 function App() {
   const {isCheckingAuth, isAuthenticated, checkAuth, user} = useAuthStore();
