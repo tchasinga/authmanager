@@ -15,9 +15,9 @@ import VerifiedEmail from './components/Pages/VerifiedEmail.jsx'
 function App() {
   // const {isCheckingAuth, isAuthenticated, checkAuth, user} = useAuthStore();
 
-  // useEffect(() => {
-  //   checkAuth();
-  // }, [checkAuth]);
+  useEffect(() => {
+    checkAuth();
+  }, [checkAuth]);
 
   console.log("data is there", isAuthenticated);
   console.log("user is added", user)
