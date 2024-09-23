@@ -4,15 +4,19 @@ import { Mail, Lock, Loader } from "lucide-react";
 import { Link } from "react-router-dom";
 import PasswordChecker from "./Pages/PasswordChecker";
 import Inputs from "./Pages/Inputs";
+import { useAuthStore } from "../store/authStore.js";
 
 export default function Singin() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const isLoading = false
 
-  const handlerSubmitHereLogin = (e) => {
+  const { login, isLoading } = useAuthStore();
+
+  const handlerSubmitHereLogin = async(e) => {
     e.preventDefault();
+    e.preventDefault();
+		await login(email, password);
     console.log("Form submitted");
   }
 
