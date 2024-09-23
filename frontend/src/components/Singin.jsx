@@ -15,7 +15,6 @@ export default function Singin() {
 
   const handlerSubmitHereLogin = async(e) => {
     e.preventDefault();
-    e.preventDefault();
 		await login(email, password);
     console.log("Form submitted");
   }
