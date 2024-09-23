@@ -44,6 +44,8 @@ function App() {
     checkAuth();
   }, [checkAuth]);
 
+  if (isCheckingAuth) return <LoadingSpinner />;
+
   console.log("data is there", isAuthenticated);
   console.log("user is added", user)
 
