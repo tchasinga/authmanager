@@ -11,6 +11,7 @@ import VerifiedEmail from './components/Pages/VerifiedEmail.jsx'
 
 import { useAuthStore } from './store/authStore.js';
 import { useEffect } from 'react';
+import LoadingSpinner from './components/Pages/LoadingSpinner.jsx';
 
 const RedirectAuthenticatedUser = ({ children }) => {
 	const { isAuthenticated, user } = useAuthStore();
@@ -56,7 +57,11 @@ function App() {
 			<FloatingShapes color='bg-lime-500' size='w-32 h-32' top='40%' left='-10%' delay={2} />
       <Toaster />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={
+            <ProtectedRoute>
+            <Home />
+          </ProtectedRoute>
+          } />
           <Route path="/singup" element={
             <RedirectAuthenticatedUser>
               <Singup />
