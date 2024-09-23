@@ -70,7 +70,11 @@ function App() {
             <Singin />
           </RedirectAuthenticatedUser>
           } />
-          <Route path='/forgot-password' element={<ForgetPassword />} />
+          <Route path='/forgot-password' element={
+            <RedirectAuthenticatedUser>
+               <ForgetPassword />
+            </RedirectAuthenticatedUser>
+          } />
           <Route path='/verify-email' element={<VerifiedEmail />}/>
         </Routes>
     </div>
