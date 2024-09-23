@@ -62,7 +62,7 @@ export const useAuthStore = create((set) => ({
 	forgotPassword: async (email) => {
 		set({ isLoading: true, error: null });
 		try {
-			const response = await axios.post(`http://localhost:5000/api/auth/resetpassword`, { email });
+			const response = await axios.post(`http://localhost:5000/api/auth/forgetpassword`, { email });
 			set({ message: response.data.message, isLoading: false });
 		} catch (error) {
 			set({
