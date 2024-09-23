@@ -45,7 +45,11 @@ function App() {
               <Singup />
             </RedirectAuthenticatedUser>
           } />
-          <Route path="/singin" element={<Singin />} />
+          <Route path="/singin" element={
+            <RedirectAuthenticatedUser>
+            <Singin />
+          </RedirectAuthenticatedUser>
+          } />
           <Route path='/forgot-password' element={<ForgetPassword />} />
           <Route path='/verify-email' element={<VerifiedEmail />}/>
         </Routes>
