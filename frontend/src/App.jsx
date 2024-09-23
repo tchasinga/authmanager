@@ -22,6 +22,21 @@ const RedirectAuthenticatedUser = ({ children }) => {
 	return children;
 };
 
+// protect routes that require authentication
+const ProtectedRoute = ({ children }) => {
+	const { isAuthenticated, user } = useAuthStore();
+
+	if (!isAuthenticated) {
+		return <Navigate to='/singin' replace />;
+	}
+
+	if (!user.isVerified) {
+		return <Navigate to='/verify-email' replace />;
+	}
+
+	return children;
+};
+
 function App() {
   const {isCheckingAuth, isAuthenticated, checkAuth, user} = useAuthStore();
 
