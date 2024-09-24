@@ -26,7 +26,7 @@ const Resetpassword = () => {
 
 			toast.success("Password reset successfully, redirecting to login page...");
 			setTimeout(() => {
-				navigate("/login");
+				navigate("/singin");
 			}, 2000);
 		} catch (error) {
 			console.error(error);
@@ -49,7 +49,7 @@ const Resetpassword = () => {
 				{message && <p className='text-green-500 text-sm mb-4'>{message}</p>}
 
 				<form onSubmit={handleSubmit}>
-					<Input
+					<Inputs
 						icon={Lock}
 						type='password'
 						placeholder='New Password'
