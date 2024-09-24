@@ -78,6 +78,7 @@ function App() {
           } />
           <Route path='/verify-email' element={<VerifiedEmail />}/>
           <Route path='/reset-password' element={<Resetpassword />}/>
+          <Route path='/*' element={"404 Page Not Found"} />
         </Routes>
     </div>
   )
