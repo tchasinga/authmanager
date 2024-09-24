@@ -12,6 +12,7 @@ import VerifiedEmail from './components/Pages/VerifiedEmail.jsx'
 import { useAuthStore } from './store/authStore.js';
 import { useEffect } from 'react';
 import LoadingSpinner from './components/Pages/LoadingSpinner.jsx';
+import Resetpassword from './components/Resetpassword.jsx';
 
 const RedirectAuthenticatedUser = ({ children }) => {
 	const { isAuthenticated, user } = useAuthStore();
@@ -76,6 +77,8 @@ function App() {
             </RedirectAuthenticatedUser>
           } />
           <Route path='/verify-email' element={<VerifiedEmail />}/>
+          <Route path='/reset-password' element={<Resetpassword />}/>
+          <Route path='/*' element={"404 Page Not Found"} />
         </Routes>
     </div>
   )
