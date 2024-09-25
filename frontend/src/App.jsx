@@ -77,7 +77,14 @@ function App() {
             </RedirectAuthenticatedUser>
           } />
           <Route path='/verify-email' element={<VerifiedEmail />}/>
-          <Route path='/reset-password' element={<Resetpassword />}/>
+          <Route
+					path='/reset-password/:token'
+					element={
+						<RedirectAuthenticatedUser>
+							<Resetpassword />
+						</RedirectAuthenticatedUser>
+					}
+				/>
           <Route path='/*' element={"404 Page Not Found"} />
         </Routes>
     </div>
