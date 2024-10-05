@@ -5,7 +5,7 @@ import User from "../models/user.model.js";
 import { generateTokenAndSetCookie } from "../utils/generateTokenAndSetCookie.js";
 import { sendPasswordResetEmail, sendVerificationEmail, sendWelcomEmails, sendResetSuccessEmail } from "../mailtrap/email.js";
 
-// this is my signup 
+// this is my... 
 export const signup = async (req, res) => {
 	const { email, password, name } = req.body;
 
